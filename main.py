@@ -4,7 +4,11 @@ from typing import Optional
 
 app = FastAPI(
     title="GigHub API",
-    description="API for managing freelance gigs in Nairobi",
+    description="""
+    API for managing freelance gigs in Nairobi
+
+    Registration Number: C027-01-0852/2024
+    """,
     version="1.0.0"
 )
 
@@ -14,6 +18,13 @@ app = FastAPI(
 # Categories: Development, Design, Writing
 # Currency: KES
 # ------------------------------------------
+@app.get("/")
+def home():
+    return {
+        "registration_number": "C027-01-0852/2024"
+    }
+
+
 
 gigs_db = [
     {
